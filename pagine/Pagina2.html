@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="EN">
+
+<head>
+  <title>Photo a Pelle</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Riccardo Pellegrin" />
+  <meta name="description" content=" It is a site of amatorial photography" />
+  <meta name="keywords" content="fotografia, amatoriale, nikonD3500, nikon, photo a pelle, drone, dji" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="../css/comune.css" />
+  <link rel="stylesheet" type="text/css" href="../css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="../css/pagina2.css" />
+  <link rel="stylesheet" type="text/css" href="../css/search.css" />
+  <link rel="stylesheet" type="text/css" href="../css/lightbox.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.js"></script>
+  <script src="../js/common.js" defer></script>
+  <script src="../js/pagina2.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/lightbox.js" defer></script>
+
+</head>
+
+<body>
+
+  <div class="banner"><!-- Blocco 1: in Alto (LOGO)-->
+    <h1>photo a pelle</h1>
+    <h2>shoot for the future</h2>
+    <img src="../Immagini/Icone/search.svg" alt="search" class="search"><!-- DA SPOSTARE-->
+  </div>
+
+
+  <div class="corpo"><!-- Blocco 2: in Alto (menu + il resto)-->
+
+    <!-- Menu-->
+    <div class="menu">
+
+      <img alt="me" class="logo" src="../Immagini/Icone/Logo_2.0.jpg">
+
+      <div class="page">
+        <li><a class="left" href="../index.html" id="Page">Home page</a></li>
+        <li><a class="left" href="../Pagine/Pagina1.html" id="Page">About me</a></li>
+        <li><a class="left" href="../Pagine/Pagina3.html" id="Page">Aerial Photos</a></li>
+        <li><a class="left" href="../Pagine/Pagina4.html" id="Page">Videos</a></li>
+      </div>
+
+      <div class="link">
+        <div class="social">
+          <a href="https://www.facebook.com/Photoapelle/?notif_id=1664189815900318&notif_t=page_fan&ref=notif"
+            target="_blank"><img alt="logo" class="svg" src="../Immagini/Icone/facebook-brands.svg"></a>
+        </div>
+        <div class="social">
+          <a href="mailto:photo.a.pelle.96@gmail.com"><img alt="logo" class="svg" mail
+              src="../Immagini/Icone/inbox-solid.svg"></a>
+        </div>
+        <div class="social">
+          <a href="https://www.instagram.com/photo_a_pelle/" target="_blank"><img alt="logo" class="svg"
+              src="../Immagini/Icone/instagram-square-brands.svg"></a>
+        </div>
+        <div class="social">
+          <a href="https://www.tiktok.com/@photo_a_pelle" target="_blank"><img alt="logo" class="svg"
+              src="../Immagini/Icone/tiktok-brands.svg"></a>
+        </div>
+        <div class="social">
+          <a href="https://www.youtube.com/channel/UCynUj-u5E1Gcn5uMjEcMM5A" target="_blank"><img alt="logo" class="svg"
+              src="../Immagini/Icone/youtube-brands.svg"></a>
+        </div>
+        <div class="social">
+          <a href="https://twitter.com/PhotoPelle" target="_blank"><img alt="logo" class="svg"
+              src="../Immagini/Icone/twitter-square-brands.svg"></a>
+        </div>
+
+      </div>
+
+      <p class="copyright">COPYRIGHT 2023</p>
+    </div>
+    <!-- Fine menu -->
+
+    <!-- Contenuto-->
+    <div class="contenuto">
+
+      <!-- Photo Grids -->
+      <div id="photo-grids">
+        <!-- template contenitore immagini -->
+        <template id="image-template">
+          <figure>
+            <img src="" alt="" data-title="" data-description="">
+            <figcaption>
+              <span class="title"></span>
+              <span class="description"></span>
+            </figcaption>
+            <div class="tags"></div>
+          </figure>
+        </template>
+
+        <!-- template contenitore anni -->
+        <template id="gallery-template">
+          <div class="year">
+            <label for=""></label>
+            <input type="checkbox" id="" hidden>
+            <div class="row">
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+            </div>
+          </div>
+        </template>
+
+      </div>
+
+      <!-- contenitore ricerca -->
+      <div id="search">
+        <header>
+          <input type="text" id="search-string" placeholder="Search something...">
+          <img src="../Immagini/Icone/cross.svg" alt="close">
+        </header>
+        <div class="results">
+          <div></div>
+        </div>
+      </div>
+
+      <!-- contenitore lightbox -->
+      <div id="lightbox">
+        <div class="outer-container">
+          <div class="lbx-image">
+            <img src="">
+          </div>
+          <div class="interface">
+            <header>
+              <div class="left">
+                <h5 class="lbx-gallery"></h5>
+                <h6 class="lbx-counter">
+                  <span class="counter"></span>
+                  <span> of </span>
+                  <span class="total"></span>
+                </h6>
+              </div>
+              <div class="right">
+                <img src="../imagine/Logo/square.svg" alt="fullscreen" class="icon">
+                <img src="../imagine/Logo/cross.svg" alt="close" class="icon">
+              </div>
+            </header>
+            <main>
+              <div><img src="../imagine/Logo/arrow-prev.svg" alt="previous" class="icon"></div>
+              <div><img src="../imagine/Logo/arrow-next.svg" alt="next" class="icon"></div>
+            </main>
+            <footer>
+              <img src="../imagine/Logo/arrow-prev.svg" alt="expand" class="icon">
+              <h5 class="lbx-img-title"></h5>
+              <h6 class="lbx-img-descr"></h6>
+              <div class="lbx-img-tags"></div>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</body>
+
+</html>
