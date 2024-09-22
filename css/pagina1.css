@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&family=Ephesis&family=Festive&family=Marcellus+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+      border: solid red 1px;
+}
+.titolo {
+      display: block;
+      text-align: center;
+}
+
+.collumn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+}
+
+.row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      gap: 3em;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      /*justify-content: space-between;*/
+}
+
+.testo {
+      text-align: justify;
+}
+
+.contenuto .collumn .row img {
+      width: 10em;
+      border: solid whitesmoke 0.25em;
+      border-bottom: solid whitesmoke 3.5em;
+}
+.contenuto .collumn .row .me2 {
+      width: 6em;
+}
+
+.contenuto .collumn .row .me, .random, .C_front, .Drone{
+     transform: rotate(-5deg);
+}
+.contenuto .collumn .row .me2, .random2, .C_back{
+      transform: rotate(5deg);
+ }

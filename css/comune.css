@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&family=Ephesis&family=Festive&family=Marcellus+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, rgba(255,0255,255) 0%, rgba(195,163,115,1) 35%, rgba(195,163,115,1) 100%);
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+/*PAGINE*/
+.banner {
+  display: block;
+  text-align: center;
+}
+.banner h1, h2{
+ border: solid black;
+}
+.corpo {
+  display: flex;
+  flex-direction: row;
+}
+.contenuto {
+  width: 90em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

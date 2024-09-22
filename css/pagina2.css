@@ -1,0 +1,162 @@
+.row {
+  --col-number: 4; /* variabile con il numero di colonne */
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+/* Create equal columns that sits next to each other */
+.column {
+  max-width: calc(100% / var(--col-number));
+  flex: 1 0 calc(100% / calc(var(--col-number) + 1));
+  padding: 0 4px;
+}
+.column figure {
+  margin: 0;
+  margin-top: 8px;
+  vertical-align: middle;
+}
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+  .row {
+    --col-number: 2;
+  }
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .row {
+    --col-number: 1;
+  }
+}
+/* NANIIIIII */
+#photo-grids {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  /* margin-left: 15%;*/
+}
+.year {
+  margin: 0 1em;
+  padding: 0.5em;
+  padding-bottom: 1rem;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+  position: relative;
+}
+.year::before,
+.year::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 0%;
+  left: 50%;
+  /* background-color: black; */
+  background: linear-gradient(90deg, transparent, black, transparent);
+  transition: inherit;
+}
+
+.year::before {
+  top: 0;
+}
+
+.year::after {
+  bottom: 0;
+}
+
+.year:hover::before,
+.year:hover::after,
+.year:has(input[type="checkbox"]:checked)::before,
+.year:has(input[type="checkbox"]:checked)::after {
+  width: 100%;
+  left: 0%;
+}
+.year > label {
+  display: block;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  cursor: pointer;
+  user-select: none;
+  transition: inherit;
+  transition-duration: 0.5s;
+}
+.year > label:hover {
+  color: red;
+}
+.year > .row {
+  height: 0;
+  overflow-y: scroll;
+  transition: inherit;
+}
+.year > input[type="checkbox"]:checked ~ .row {
+  height: 50vh;
+}
+*:is(#search > .results > div, .year) *:is(figure, img) {
+  width: 100%;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+*:is(#search > .results > div, .year) figure > img {
+  scale: 1;
+  transition: var(--transition-time) ease;
+}
+
+*:is(#search > .results > div, .year) figure:hover > img {
+  scale: 1.1;
+}
+
+*:is(#search > .results > div, .year) figure {
+  --transition-time: 0.3s;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "stack";
+}
+
+*:is(#search > .results > div, .year) figure > .tags {
+  display: none;
+}
+
+*:is(#search > .results > div, .year) figure > *:is(img, figcaption) {
+  grid-area: stack;
+}
+
+*:is(#search > .results > div, .year) figure > figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 1em;
+  color: white;
+  background-color: #000a;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: var(--transition-time);
+  z-index: 2;
+  width: 100%;
+}
+
+*:is(#search > .results > div, .year) figure:hover > figcaption {
+  opacity: 1;
+}
+
+*:is(#search > .results > div, .year) figure .title {
+  text-transform: uppercase;
+}
+
+*:is(#search > .results > div, .year) figure .description {
+  --line-height: 1.3em;
+  font-weight: 400;
+  font-size: small;
+  line-height: var(--line-height);
+  height: var(--line-height);
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+
+  background: linear-gradient(90deg, white 0%, white 50%, transparent 100%);
+  background-clip: text;
+  color: transparent;
+}

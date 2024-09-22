@@ -1,0 +1,61 @@
+#search > .banner > img,
+.banner > img {
+  position: absolute;
+  height: 3em;
+  right: 2em;
+  top: 2em;
+  cursor: pointer;
+}
+
+#search {
+  --transition: 500ms ease;
+  background-color: rgb(195, 163, 115);
+  position: absolute;
+  inset: 0;
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+#search.open {
+  height: 100vh;
+}
+
+#search > * {
+  margin: 2em;
+}
+
+#search > .banner > input {
+  font-family: inherit;
+  font-size: 2.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px black;
+  width: calc(100% - 3em);
+}
+
+#search > .banner > input:focus {
+  outline: none;
+}
+
+#search > .banner > input::placeholder {
+  color: rgba(85, 85, 85, 0.5);
+}
+
+#search > .results {
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+#search > .results > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  align-items: end;
+}
+
+#search > .results > div > * {
+  aspect-ratio: 16/9;
+}

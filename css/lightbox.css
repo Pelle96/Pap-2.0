@@ -1,0 +1,188 @@
+body:has(#lightbox.active) {
+    overflow: hidden;
+    /* prevent body scrolling when the lightbox is open */
+}
+
+#lightbox {
+    --transition-time: 0.5s;
+
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    color: white;
+    background-color: #000a;
+    backdrop-filter: blur(4px);
+    display: grid;
+    place-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s var(--transition-time), opacity var(--transition-time) linear;
+}
+
+#lightbox.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--transition-time) linear;
+}
+
+#lightbox :is(*, *::before, *::after) {
+    transition-duration: var(--transition-time);
+}
+
+#lightbox .outer-container {
+    --vertical-margin: 2rem;
+    --horizontal-margin: 4rem;
+    --inner-margin: 2px;
+
+    background-color: black;
+    max-width: calc(100% - 2 * var(--horizontal-margin));
+    height: calc(100% - 2 * var(--vertical-margin));
+    aspect-ratio: var(--aspect, 16/9);
+    display: grid;
+    place-items: center;
+    border-radius: var(--inner-margin);
+    border: solid var(--inner-margin) white;
+    position: relative;
+    overflow: hidden;
+}
+
+#lightbox .lbx-image {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}
+
+#lightbox .lbx-image>img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#lightbox .interface {
+    position: absolute;
+    background-color: transparent;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    transition: opacity var(--transition-time) linear;
+    opacity: 1;
+}
+
+#lightbox .interface.hidden {
+    opacity: 0;
+}
+
+#lightbox .interface>* {
+    padding: 0.5rem;
+}
+
+#lightbox .icon {
+    filter: invert(1);
+    height: 3em;
+    cursor: pointer;
+}
+
+#lightbox .interface>header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    background: linear-gradient(0deg, transparent, #000a);
+}
+
+#lightbox .interface>main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lightbox .interface>main>* {
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+#lightbox .interface>main>*::before {
+    content: '';
+    position: absolute;
+    inset: -200%;
+    background: transparent;
+}
+
+#lightbox .interface>main>*:hover::before {
+    background: radial-gradient(#000a, transparent 50%);
+}
+
+#lightbox .interface>footer {
+    padding-inline: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(transparent, #000a 25%);
+    overflow: hidden;
+}
+
+#lightbox .interface>footer>[alt=expand] {
+    height: 1.5rem;
+    rotate: 90deg;
+}
+
+#lightbox .interface>footer.open>[alt=expand] {
+    scale: -1 1;
+}
+
+#lightbox :is(.lbx-gallery, .lbx-img-title) {
+    font-size: xx-large;
+    font-weight: normal;
+}
+
+#lightbox :is(.lbx-counter, .lbx-img-descr) {
+    font-size: medium;
+    font-weight: 300;
+}
+
+#lightbox .interface>footer .lbx-img-descr {
+    height: calc(1.0 * 1em);
+    background: linear-gradient(90deg, white 0%, white 50%, transparent 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+#lightbox .interface>footer.open .lbx-img-descr {
+    background: linear-gradient(90deg, white 0%, white 100%, transparent 100%);
+    background-clip: text;
+    height: auto;
+}
+
+#lightbox .lbx-img-tags {
+    /* display: flex; */
+    display: none;
+    flex-wrap: wrap;
+    margin-top: 0.5em;
+    font-size: small;
+    font-weight: lighter;
+    font-style: italic;
+    gap: 0.5em 1em;
+    height: 0;
+}
+
+#lightbox .interface>footer.open .lbx-img-tags {
+    height: auto;
+}
+
+#lightbox .lbx-img-tags>* {
+    background-color: #fff2;
+    padding: 0.5em 1em;
+    border-radius: 100vw;
+
+    &::before {
+        content: '#';
+        /* 🏷🏷️ */
+        margin-right: 0.25em;
+        filter: grayscale(1);
+    }
+}
